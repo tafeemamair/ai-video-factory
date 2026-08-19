@@ -1,0 +1,41 @@
+{
+  "title": "Why Your Brain Feels Exhausted All the Time",
+  "style": "mindshift",
+  "hooks": [
+    "Your brain is tired, not your body.",
+    "This is why you feel exhausted even after resting."
+  ],
+  "text": "Mental fatigue explained",
+  "scenes": [
+    {
+      "type": "MG",
+      "text": "You don’t feel tired because you did too much.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "You feel tired because your brain never stops thinking.",
+      "duration": 5
+    },
+    {
+      "type": "MG",
+      "text": "Overthinking drains more energy than physical work.",
+      "duration": 5
+    },
+    {
+      "type": "MG",
+      "text": "Your nervous system stays in alert mode all day.",
+      "duration": 5
+    },
+    {
+      "type": "MG",
+      "text": "That’s why rest doesn’t feel refreshing anymore.",
+      "duration": 5
+    },
+    {
+      "type": "MG",
+      "text": "To recover, you must calm your mind, not just your body.",
+      "duration": 6
+    }
+  ]
+}

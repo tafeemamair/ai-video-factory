@@ -1,0 +1,2 @@
+# The verified core pipeline uses only the Python standard library.
+# FFmpeg and FFprobe are required system executables; see README.md.

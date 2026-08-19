@@ -1,0 +1,26 @@
+{
+  "title": "MindShift Hub Test",
+  "style": "mindshift",
+  "hooks": [
+    "Your brain is lying to you.",
+    "This is why you feel tired all the time."
+  ],
+  "text": "Test run for AI Video Factory",
+  "scenes": [
+    {
+      "type": "MG",
+      "text": "Your brain is wired to see danger first.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "This is called negativity bias.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "You can retrain it with simple habits.",
+      "duration": 5
+    }
+  ]
+}

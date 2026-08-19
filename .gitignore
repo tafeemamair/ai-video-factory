@@ -1,0 +1,80 @@
+# Python environments and bytecode
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables and local configuration
+.env
+.env.*
+!.env.example
+
+# Generated core-pipeline files
+temp/
+subs/
+builds/
+exports/
+Exports/
+shorts/
+/final_video.mp4
+/final_auto.mp4
+/concat.txt
+/build_progress.json
+/build_state.json
+/subs.srt
+/subs.ass
+/auto_scenes.txt
+/video_list.txt
+
+# Generated audio/video artifacts kept at the project root
+/*.wav
+/*.mp4
+/*.mp3
+/*.m4a
+/*.aac
+/*.mov
+/*.mkv
+/*.avi
+/*.webm
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
+/mixed_audio.wav
+
+# Unreviewed local media assets (README remains publishable)
+/05_visual_assets/cinematic/
+/05_visual_assets/motion_graphics/
+/Audio_Assets/
+/audio/
+/LANDSCAPE_FOLDER/
+/SHORTS_FOLDER/
+/Videos_Shorts/
+
+# Generated content-addressed visual cache
+/05_visual_assets/CIN_*.mp4
+/05_visual_assets/MG_*.mp4
+
+# Local caches and test/build outputs
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

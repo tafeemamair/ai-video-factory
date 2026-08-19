@@ -1,0 +1,45 @@
+{
+  "title": "Anxiety in the Modern World",
+  "scenes": [
+    {
+      "type": "CIN",
+      "text": "A man sits alone in a dimly lit room, staring at his phone while rain hits the window.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "Your brain is overwhelmed by notifications, comparisons, and constant noise.",
+      "duration": 3
+    },
+    {
+      "type": "CIN",
+      "text": "Crowds rush past him in a blurry street, but he feels completely invisible.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "This is what anxiety feels like — too many thoughts, not enough clarity.",
+      "duration": 3
+    },
+    {
+      "type": "CIN",
+      "text": "He stands on a rooftop at night, watching the city lights, searching for peace.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "Your mind doesn’t need more information — it needs stillness.",
+      "duration": 3
+    },
+    {
+      "type": "CIN",
+      "text": "Rain falls as he walks alone down a foggy street.",
+      "duration": 4
+    },
+    {
+      "type": "MG",
+      "text": "Slow down. Breathe. You are not broken.",
+      "duration": 3
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mindshift": {
+    "font": "Arial",
+    "subtitle_size": 48,
+    "subtitle_color": "FFFFFF",
+    "music": "calm_ambient.mp3"
+  },
+  "viral": {
+    "font": "Impact",
+    "subtitle_size": 56,
+    "subtitle_color": "FFFF00",
+    "music": "pulse.mp3"
+  }
+}
