@@ -160,7 +160,7 @@ def render_scene_ffmpeg(
     ]
 
     if subtitle and os.path.exists(subtitle):
-        subtitle_filter = f"subtitles=filename='{subtitle.replace(os.sep, '/')} '".rstrip()
+        subtitle_filter = f"subtitles=filename='{subtitle.replace(os.sep, '/')} '"[:-1]
         command.extend(["-vf", subtitle_filter])
 
     command.append(output)
