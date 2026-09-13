@@ -53,7 +53,9 @@ FFmpeg failures are explicit: a nonzero exit code, absent output, or empty outpu
 
 ### 6. Validation
 
-`validate_project()` checks that every rendered scene clip exists. `guard_scene()` invokes FFprobe and confirms that each clip duration matches the scene duration within a small tolerance.
+`validate_project()` checks that every rendered scene clip exists. It then calls `get_duration()`, which invokes FFprobe, and confirms that each clip duration matches the requested scene duration within a small tolerance.
+
+Final assembly is therefore gated by media-level validation rather than relying only on FFmpeg's process exit code.
 
 ### 7. Final video assembly
 
@@ -71,3 +73,4 @@ FFmpeg failures are explicit: a nonzero exit code, absent output, or empty outpu
 | `Audio_Assets/` | Local audio selected by a style definition. |
 | `subs/` | Generated SRT files used by the FFmpeg subtitle filter. |
 | `temp/` | Generated scene clips used for final assembly. |
+| `tests/test_pipeline.py` | Standard-library tests for validation, asset determinism, subtitles, and media-error handling. |
