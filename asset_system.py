@@ -1,54 +1,55 @@
-import os
+"""Deterministic local asset lookup and fallback resolution."""
+
+from __future__ import annotations
+
 import hashlib
-import subprocess
+import os
+import shutil
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ai_video_factory import Scene
+
 
 ASSET_DIR = "05_visual_assets"
 
-os.makedirs(ASSET_DIR, exist_ok=True)
 
-def _hash(text):
-    return hashlib.md5(text.encode()).hexdigest()[:12]
-
-def lookup_asset(text, scene_type):
-    key = f"{scene_type}_{_hash(text)}"
-    path = f"{ASSET_DIR}/{key}.mp4"
-
-    if os.path.exists(path):
-        return path
-
-    return None
+def _hash(text: str) -> str:
+    return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
 
 
-import os
-import shutil
+def lookup_asset(text: str, scene_type: str) -> str | None:
+    """Return a cached asset for a scene, if one exists."""
+    key = f"{scene_type.upper()}_{_hash(text)}"
+    path = os.path.join(ASSET_DIR, f"{key}.mp4")
+    return path if os.path.exists(path) else None
 
-def generate_asset(scene):
-    os.makedirs(ASSET_DIR, exist_ok=True)
-    
+
+def resolve_fallback_asset(scene: "Scene") -> str:
+    """Select and cache a deterministic local fallback clip."""
     scene_type = scene.scene_type.upper()
+    folder = os.path.join(
+        ASSET_DIR,
+        "cinematic" if scene_type == "CIN" else "motion_graphics",
+    )
 
-    if scene_type == "CIN":
-        folder = "05_visual_assets/cinematic"
-    else:
-        folder = "05_visual_assets/motion_graphics"
+    if not os.path.isdir(folder):
+        raise FileNotFoundError(f"Asset directory missing: {folder}")
 
-
-    files = sorted(f for f in os.listdir(folder) if f.endswith(".mp4"))
-
+    files = sorted(
+        filename for filename in os.listdir(folder)
+        if filename.lower().endswith(".mp4")
+    )
     if not files:
-        raise Exception(f"No clips found in {folder}")
+        raise FileNotFoundError(f"No MP4 assets found in {folder}")
 
-    # Select deterministically so the same scene always resolves to the same
-    # local fallback clip before it is cached.
-    pick = files[int(_hash(scene.text), 16) % len(files)]
-    src = os.path.join(folder, pick)
+    selected = files[int(_hash(scene.text), 16) % len(files)]
+    source = os.path.join(folder, selected)
+    output = os.path.join(
+        ASSET_DIR,
+        f"{scene_type}_{_hash(scene.text)}.mp4",
+    )
 
-    key = f"{scene.scene_type}_{_hash(scene.text)}"
-    out = f"{ASSET_DIR}/{key}.mp4"
-
-    print(f"[ASSET] {scene.scene_type} → {pick}")
-
-    # Copy instead of regenerate
-    shutil.copy(src, out)
-
-    return out
+    os.makedirs(ASSET_DIR, exist_ok=True)
+    shutil.copy2(source, output)
+    return output
