@@ -1,11 +1,6 @@
 {
-  "title": "MindShift Hub Test",
+  "title": "Mental Fatigue Explained",
   "style": "mindshift",
-  "hooks": [
-    "Your brain is lying to you.",
-    "This is why you feel tired all the time."
-  ],
-  "text": "Test run for AI Video Factory",
   "scenes": [
     {
       "type": "MG",
